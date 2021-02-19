@@ -9,7 +9,9 @@ TBD
 
 ## Features
 
-TBD
+ERD (Entity Relationship Diagram)
+- Shows relationships of data in csv files, used as guideline to create SQL schema for tables
+- Generated via http://www.quickdatabasediagrams.com
 
 ## Licensing by:
 
