@@ -37,6 +37,21 @@ JOIN departments AS d
 ON "Department Number" = d.dept_no;
 
 
+-- Employee, emp number, last name, first name, deptartment name
+
+-- COME BACK TO NUMBER 4
+
+SELECT * FROM dept_emp;
+
+
+-- 
+
+
+-- First name, last name, sex for employees with first name Hercules and last name starts with B
+SELECT first_name AS "First Name", last_name AS "Last Name", sex AS "Sex"
+FROM employees
+WHERE first_name = 'Hercules' AND last_name LIKE 'B%';
+
 
 -- Clean up to drop views created in prior steps
-DROP VIEW manager_details
+DROP VIEW manager_details;
