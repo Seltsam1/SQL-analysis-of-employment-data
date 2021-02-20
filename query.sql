@@ -59,7 +59,7 @@ SELECT * FROM department_details;
 SELECT e.emp_no AS "Employee Numnber", e.last_name AS "Last Name",
 	   e.first_name AS "First Name", d.dept_name AS "Department Name"
 FROM employees AS e
-JOIN department_details AS d
+LEFT JOIN department_details AS d
 ON e.emp_no = d.emp_no;
 
 
@@ -73,21 +73,34 @@ WHERE first_name = 'Hercules' AND last_name LIKE 'B%';
 
 --------------Query 6
 
+-- Employees of sales department: employee number, last name, first name, department
+SELECT e.emp_no AS "Employee Numnber", e.last_name AS "Last Name",
+	   e.first_name AS "First Name", d.dept_name AS "Department Name"
+FROM employees AS e
+JOIN department_details AS d
+ON e.emp_no = d.emp_no
+WHERE d.dept_name = 'Sales'
 
 
--- Employees from sale department: employee number, last name, first name, dept name
-SELECT e.emp_no AS "Employee Number", e.last_name AS "Last Name",
-	   e.first_name AS "First Name", 
-	   (
-		SELECT d.dept_name AS "Department Name"
-		FROM departments
-		WHERE dept_no IN
-		   (
-		   SELECT 
-		   )
-	   )
-FROM employees AS e;
-		   
+--------------Query 7
+
+-- Employees of sales or development departments: employee number, last name, first name, department
+SELECT e.emp_no AS "Employee Numnber", e.last_name AS "Last Name",
+	   e.first_name AS "First Name", d.dept_name AS "Department Name"
+FROM employees AS e
+JOIN department_details AS d
+ON e.emp_no = d.emp_no
+WHERE d.dept_name = 'Sales' OR d.dept_name = 'Development'
+
+
+--------------Query 8
+
+-- Count of employee last names in descending order
+SELECT last_name AS "Last Name", COUNT(last_name) AS "Frequency of Last Name"
+FROM employees
+GROUP BY last_name
+ORDER BY "Frequency of Last Name" DESC;
+
 
 -- Clean up to drop views created in prior steps
 DROP VIEW manager_details;
