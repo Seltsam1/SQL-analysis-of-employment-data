@@ -18,19 +18,25 @@ FROM employees
 WHERE EXTRACT(YEAR FROM hire_date) = '1986';
 
 
--- Department managers details 
--- (dept number, dept name, manager number, last name, first name)
-SELECT * FROM dept_manager;
+-- Department managers details (dept number, dept name, manager number, last name, first name)
 
-SELECT * FROM departments;
-
-SELECT * FROM employees LIMIT 10;
-
+-- Create view to join first 2 tables
+CREATE VIEW manager_details AS 
 SELECT dm.dept_no AS "Department Number", e.emp_no AS "Manager Number", 
        e.last_name AS "Last Name", 
        e.first_name AS "First Name"
 FROM employees AS e
-JOIN dept_manager AS dm
-ON e.emp_no = dm.emp_no
-LIMIT 10;
+RIGHT JOIN dept_manager AS dm
+ON e.emp_no = dm.emp_no;
 
+-- Query to join 3rd table for final results
+SELECT m."Department Number", d.dept_name AS "Department Name",
+       m."Manager Number", m."Last Name", m."First Name"
+FROM manager_details AS m
+JOIN departments AS d
+ON "Department Number" = d.dept_no;
+
+
+
+-- Clean up to drop views created in prior steps
+DROP VIEW manager_details
