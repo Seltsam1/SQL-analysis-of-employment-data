@@ -7,7 +7,13 @@ Analysis using sql of csv files for employment data
 - All csv files used in analysis are in the resources folder
 - schema.sql file is used to create tables in SQL (PostgreSQL)
   - Update filepath for copy commands to your local folder containing csv files to use code
-- query.sql contains all analyses
+- query.sql contains all SQL queries (additional detailts in Features section below)
+
+- sql-investigation.ipynb is optional jupyter notebook file with additional analyses
+  - Uses sqlAlchemy to connect to PostgreSQL via Python
+  - Requires pip install of psycop2-binary and py_config (steps included in file)  
+  - Requires a "config.py" file with username and password to PostgreSQL (not included)
+  - "create_engine" step will need to be updated to appropriate port and database name in PostgreSQL to run code
 
 ## Features
 
@@ -34,6 +40,11 @@ query.sql
   -   List of employees in Sales or Development departments with details
   -   Frequency found of employee last names in descending order
 -  Additional details of queries located within comments in file
+
+sql-investigation.ipynb
+
+- Jupyter Notebook file containing 2 charts to investigate validity of employment data
+- Final bar chart shows potential innacuracy or raw data based on job title where senior position earns less than junior positions
 
 ## Licensing by:
 
