@@ -30,9 +30,9 @@ SELECT dm.dept_no AS "Department Number",
        e.last_name AS "Last Name", 
        e.first_name AS "First Name"
 FROM employees AS e
-RIGHT JOIN dept_manager AS dm
+Inner JOIN dept_manager AS dm
 ON e.emp_no = dm.emp_no
-JOIN departments as D
+Inner JOIN departments as D
 ON dm.dept_no = d.dept_no;
 
 
