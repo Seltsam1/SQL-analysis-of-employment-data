@@ -59,14 +59,14 @@ WHERE first_name = 'Hercules' AND last_name LIKE 'B%';
 --------------Query 6
 
 -- Employees of sales department: employee number, last name, first name, department
-SELECT de.emp_no AS "Employee Numnber", e.last_name AS "Last Name",
+SELECT de.emp_no AS "Employee Number", e.last_name AS "Last Name",
        e.first_name AS "First Name", d.dept_name AS "Department Name"
 FROM dept_emp AS de
 INNER JOIN departments AS d
 ON de.dept_no = d.dept_no
 INNER JOIN employees AS e
 ON e.emp_no = de.emp_no
-WHERE d.dept_name = 'Sales'
+WHERE d.dept_name = 'Sales';
 
 
 --------------Query 7
@@ -79,7 +79,7 @@ INNER JOIN departments AS d
 ON de.dept_no = d.dept_no
 INNER JOIN employees AS e
 ON e.emp_no = de.emp_no
-WHERE d.dept_name = 'Sales' OR d.dept_name = 'Development'
+WHERE d.dept_name = 'Sales' OR d.dept_name = 'Development';
 
 
 --------------Query 8
